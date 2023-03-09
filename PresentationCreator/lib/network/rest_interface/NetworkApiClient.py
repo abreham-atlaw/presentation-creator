@@ -17,6 +17,8 @@ class NetworkApiClient:
 		self.__timeout = timeout
 
 	def _get_complete_url(self, url):
+		if url.startswith("/"):
+			url = url[1:]
 		return f"{self.__url}/{url}"
 
 	@network_call
@@ -38,6 +40,8 @@ class NetworkApiClient:
 					for key, filename in
 					request.get_files().items()
 				}
+			else:
+				files = None
 			response = requests.post(
 				self._get_complete_url(request.get_url()),
 				data=request.get_post_data(),
@@ -64,7 +68,8 @@ class NetworkApiClient:
 	def execute(self, request: Request, headers: Optional[Dict] = None):
 		if headers is None:
 			headers = {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
+				"accept": "application/json"
 			}
 		response = None
 		headers.update(request.get_headers())

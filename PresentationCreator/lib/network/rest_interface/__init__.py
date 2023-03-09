@@ -1,3 +1,3 @@
-from .serializers import Serializer, NumpySerializer
+from .serializers import Serializer
 from .requests import Request
 from .NetworkApiClient import NetworkApiClient
