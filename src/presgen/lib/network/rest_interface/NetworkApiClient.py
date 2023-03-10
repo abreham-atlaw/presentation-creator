@@ -4,7 +4,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from . import Request
-from lib.network import network_call
+from presgen.lib.network import network_call
 from .exceptions import InvalidNetworkMethod
 
 

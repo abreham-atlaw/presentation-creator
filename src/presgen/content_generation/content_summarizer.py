@@ -1,6 +1,6 @@
 import typing
 
-from lib.network.chatsonic import ChatSonicClient
+from presgen.lib.network.chatsonic import ChatSonicClient
 
 
 class ContentSummarizer:

@@ -2,19 +2,19 @@ import typing
 
 import unittest
 
-from lib.network.chatsonic import ChatSonicClient
-from content_generation.content_summarizer import ContentSummarizer
-from content_generation.content_generator import ContentGenerator
-from presentation_generation.combined_generator import CombinedGenerator
+from presgen.lib.network.chatsonic import ChatSonicClient
+from presgen.content_generation.content_summarizer import ContentSummarizer
+from presgen.content_generation.content_generator import ContentGenerator
+from presgen.presentation_generation.combined_generator import CombinedGenerator
 
 
 class CombinedGeneratorTest(unittest.TestCase):
 
 	TOKEN = "3ec663ae-0602-4778-a66f-2da86b670c60"
-	FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/PresentationCreator/res/test_data/1.pdf"
+	FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/1.pdf"
 	PAGE_RANGE = (25, 35)
 	BATCH_SIZE = 5
-	OUT_PATH = "C:/Users/user/Projects/presentation-creator/presentation-creator/PresentationCreator/res/test_data/out.pptx"
+	OUT_PATH = "C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/out.pptx"
 
 	def setUp(self) -> None:
 		self.__generator = CombinedGenerator(ContentGenerator(ContentSummarizer(

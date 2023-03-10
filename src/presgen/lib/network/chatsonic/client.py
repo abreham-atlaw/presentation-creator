@@ -1,6 +1,6 @@
 import typing
 
-from lib.network.rest_interface import NetworkApiClient, Request
+from presgen.lib.network.rest_interface import NetworkApiClient, Request
 from .requests import SummaryRequest
 
 

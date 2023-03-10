@@ -1,7 +1,7 @@
 import typing
 
-from content_generation.content_generator import ContentGenerator
-from presentation_generation.presentation_generator import PresentationGenerator
+from presgen.content_generation.content_generator import ContentGenerator
+from presgen.presentation_generation.presentation_generator import PresentationGenerator
 
 
 class CombinedGenerator(PresentationGenerator):

@@ -2,11 +2,12 @@ import typing
 
 import unittest
 
-from content_generation.content_extractor import ContentExtractor
+from presgen.content_generation.content_extractor import ContentExtractor
+
 
 class ContentExtractorTest(unittest.TestCase):
 
-	FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/PresentationCreator/res/test_data/1.pdf"
+	FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/1.pdf"
 	PAGE_RANGE = (25, 100)
 	BATCH_SIZE = 5
 

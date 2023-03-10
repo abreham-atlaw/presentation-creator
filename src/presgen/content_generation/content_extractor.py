@@ -2,7 +2,7 @@ import typing
 
 import fitz
 
-from lib.utils.logger import default_logger
+from presgen.lib.utils.logger import default_logger
 
 
 class ContentExtractor:
