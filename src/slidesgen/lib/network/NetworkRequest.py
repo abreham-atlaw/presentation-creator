@@ -1,6 +1,6 @@
 from requests.exceptions import HTTPError, ConnectionError
 
-from presgen.lib.utils.logger import default_logger
+from slidesgen.lib.utils.logger import default_logger
 
 
 def network_call(func):

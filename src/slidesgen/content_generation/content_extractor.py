@@ -2,7 +2,7 @@ import typing
 
 import fitz
 
-from presgen.lib.utils.logger import default_logger
+from slidesgen.lib.utils.logger import default_logger
 
 
 class ContentExtractor:

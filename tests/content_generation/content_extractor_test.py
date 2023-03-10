@@ -2,7 +2,7 @@ import typing
 
 import unittest
 
-from presgen.content_generation.content_extractor import ContentExtractor
+from slidesgen.content_generation.content_extractor import ContentExtractor
 
 
 class ContentExtractorTest(unittest.TestCase):

@@ -1,6 +1,6 @@
 import typing
 
-from presgen.lib.network.chatsonic import ChatSonicClient
+from slidesgen.lib.network.chatsonic import ChatSonicClient
 
 
 class ContentSummarizer:

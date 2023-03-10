@@ -2,7 +2,7 @@ import typing
 
 import json
 
-from presgen.lib.network.rest_interface import Request
+from slidesgen.lib.network.rest_interface import Request
 
 
 class SummaryRequest(Request):

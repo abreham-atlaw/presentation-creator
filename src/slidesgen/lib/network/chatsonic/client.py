@@ -1,6 +1,6 @@
 import typing
 
-from presgen.lib.network.rest_interface import NetworkApiClient, Request
+from slidesgen.lib.network.rest_interface import NetworkApiClient, Request
 from .requests import SummaryRequest
 
 
