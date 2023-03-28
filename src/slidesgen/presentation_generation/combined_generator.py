@@ -1,12 +1,10 @@
-import typing
-
-from slidesgen.content_generation.content_generator import ContentGenerator
+from slidesgen.content_generation.generators import ExtractorBasedGenerator
 from slidesgen.presentation_generation.presentation_generator import PresentationGenerator
 
 
 class CombinedGenerator(PresentationGenerator):
 
-	def __init__(self, content_generator: ContentGenerator, *args, **kwargs):
+	def __init__(self, content_generator: ExtractorBasedGenerator, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		self.__content_generator = content_generator
 

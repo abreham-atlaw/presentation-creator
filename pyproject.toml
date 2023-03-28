@@ -54,7 +54,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "slidesgen"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Abreham Atlaw", email="abreham.atlaw@yahoo.com" },
 ]

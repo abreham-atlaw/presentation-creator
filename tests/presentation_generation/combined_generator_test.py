@@ -1,10 +1,7 @@
-import typing
-
 import unittest
 
 from slidesgen.lib.network.chatsonic import ChatSonicClient
-from slidesgen.content_generation.content_summarizer import ContentSummarizer
-from slidesgen.content_generation.content_generator import ContentGenerator
+from slidesgen.content_generation.generators import ContentSummarizer, PPTXContentGenerator, PDFContentGenerator
 from slidesgen.presentation_generation.combined_generator import CombinedGenerator
 from slidesgen.presentation_generation.data import Template
 
@@ -28,21 +25,34 @@ class CombinedGeneratorTest(unittest.TestCase):
 		]
 	)
 
+	PPTX_FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/in.pptx"
+
 	def setUp(self) -> None:
-		self.__generator = CombinedGenerator(
-			ContentGenerator(ContentSummarizer(
+		self.__pdf_generator = PDFContentGenerator(ContentSummarizer(
 				ChatSonicClient(
 					self.TOKEN
 				)
-			)),
-			template=self.TEMPLATE,)
+			))
 
-	def test_functionality(self):
-		self.__generator.generate_from_file(
+		self.__pptx_generator = PPTXContentGenerator(max_points=3)
+
+		self.__combined_generator = CombinedGenerator(self.__pptx_generator, template=self.TEMPLATE)
+
+	def test_pdf_generator(self):
+		generator = CombinedGenerator(self.__pdf_generator, template=self.TEMPLATE)
+		generator.generate_from_file(
 			title=self.TITLE,
 			file=self.FILE,
 			out_path=self.OUT_PATH,
 			start_page=self.PAGE_RANGE[0],
 			end_page=self.PAGE_RANGE[1],
 			batch_size=self.BATCH_SIZE,
+		)
+
+	def test_pptx_generator(self):
+		generator = CombinedGenerator(self.__pptx_generator, template=self.TEMPLATE)
+		generator.generate_from_file(
+			title="Test",
+			file=self.PPTX_FILE,
+			out_path=self.OUT_PATH
 		)

@@ -3,9 +3,10 @@ import typing
 import fitz
 
 from slidesgen.lib.utils.logger import default_logger
+from .file_content_extractor import FileContentExtractor
 
 
-class ContentExtractor:
+class PDFContentExtractor(FileContentExtractor):
 
 	def __init__(self, paragraph_delimiter="\n"*4):
 		self.__paragraph_delimiter = paragraph_delimiter

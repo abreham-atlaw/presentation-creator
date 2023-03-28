@@ -1,15 +1,13 @@
-import typing
-
 import unittest
 
 from slidesgen.lib.network.chatsonic import ChatSonicClient
-from slidesgen.content_generation.content_summarizer import ContentSummarizer
+from slidesgen.content_generation.generators.content_summarizer import ContentSummarizer
 
 
 class ContentSummarizerTest(unittest.TestCase):
 
 	TOKEN = "c070f8ee-cb58-4d57-9b67-dc30c57ce50a"
-	ARTICLE = open("C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/agile_development.txt").read()
+	ARTICLE = open("/tests/res/test_data/agile_development.txt").read()
 
 	def setUp(self) -> None:
 		self.__content_generator = ContentSummarizer(
