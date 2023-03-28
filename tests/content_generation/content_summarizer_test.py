@@ -8,7 +8,7 @@ from slidesgen.content_generation.content_summarizer import ContentSummarizer
 
 class ContentSummarizerTest(unittest.TestCase):
 
-	TOKEN = "3ec663ae-0602-4778-a66f-2da86b670c60"
+	TOKEN = "c070f8ee-cb58-4d57-9b67-dc30c57ce50a"
 	ARTICLE = open("C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/agile_development.txt").read()
 
 	def setUp(self) -> None:

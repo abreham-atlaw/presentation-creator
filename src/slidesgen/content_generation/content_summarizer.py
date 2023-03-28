@@ -8,8 +8,9 @@ class ContentSummarizer:
 	def __init__(self, chatsonic: ChatSonicClient):
 		self.__chatsonic = chatsonic
 
-	def summarize(self, text: str) -> typing.List[str]:
-		summary = self.__chatsonic.summarize(text)
-		points = [f"{point}." for point in summary.split(". ")]
+	def summarize(self, article: str) -> typing.List[str]:
+		prepared_text = f"Summarize the following text to be suitable for lecture presentation.\n{article}"
 
-		return points
+		response: str = self.__chatsonic.chat(prepared_text)
+		return [f"{point}." for point in response.split(". ")]
+

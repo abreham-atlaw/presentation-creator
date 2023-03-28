@@ -1,7 +1,7 @@
 import typing
 
 from slidesgen.lib.network.rest_interface import NetworkApiClient, Request
-from .requests import SummaryRequest
+from .requests import SummaryRequest, ChatRequest
 
 
 class ChatSonicClient(NetworkApiClient):
@@ -15,6 +15,11 @@ class ChatSonicClient(NetworkApiClient):
 	def summarize(self, text: str) -> str:
 		return self.execute(
 			SummaryRequest(text)
+		)
+
+	def chat(self, text: str) -> str:
+		return self.execute(
+			ChatRequest(text)
 		)
 
 	def __construct_headers(self, headers) -> typing.Dict[str, typing.Any]:
