@@ -6,6 +6,7 @@ from pptx.presentation import Presentation
 from pptx.slide import Slide, SlideLayout
 
 from slidesgen.presentation_generation.data import Template
+from slidesgen.content_generation.data import Content
 
 
 class PresentationGenerator:
@@ -24,14 +25,19 @@ class PresentationGenerator:
 		slide: Slide = presentation.slides.add_slide(layout)
 		slide.placeholders[0].text = title
 
-	def __create_content_slide(self, presentation: Presentation, contents: typing.List[str]):
+	def __create_content_slide(self, presentation: Presentation, content: Content):
 		layout = self.__get_layout(presentation, Template.Layouts.TITLE_AND_CONTENT)
 
 		slide = presentation.slides.add_slide(layout)
 		title_idx, body_idx = [shape.placeholder_format.idx for shape in slide.placeholders]
+
+		if content.title is not None:
+			title_shape = slide.placeholders[title_idx]
+			title_shape.text = content.title
+
 		body_shape = slide.placeholders[body_idx]
 
-		for point in contents:
+		for point in content.body:
 			paragraph = body_shape.text_frame.add_paragraph()
 			paragraph.text = point
 
@@ -46,7 +52,7 @@ class PresentationGenerator:
 	def generate(
 			self,
 			title: str,
-			contents: typing.List[typing.List[str]],
+			contents: typing.List[Content],
 			out_path: str,
 	):
 

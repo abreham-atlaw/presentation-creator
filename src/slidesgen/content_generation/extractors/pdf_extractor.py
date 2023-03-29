@@ -3,6 +3,7 @@ import typing
 import fitz
 
 from slidesgen.lib.utils.logger import default_logger
+from slidesgen.content_generation.data import Content
 from .file_content_extractor import FileContentExtractor
 
 
@@ -39,4 +40,7 @@ class PDFContentExtractor(FileContentExtractor):
 		if batch_size != 1:
 			paragraphs = self.__batch_paragraphs(paragraphs, batch_size)
 
-		return paragraphs
+		return [
+			Content(None, [paragraph])
+			for paragraph in paragraphs
+		]

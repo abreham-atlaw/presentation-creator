@@ -5,7 +5,7 @@ from slidesgen.content_generation.extractors import PPTXExtractor
 
 class PPTExtractorTest(unittest.TestCase):
 
-	FILE = "/tests/res/test_data/out.pptx"
+	FILE = "C:/Users/user/Projects/presentation-creator/presentation-creator/tests/res/test_data/in.pptx"
 	PAGE_RANGE = (25, 100)
 	BATCH_SIZE = 5
 
